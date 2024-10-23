@@ -18,16 +18,21 @@ def main(name):
             cnt = [0 for i in range(c)]
             val = 0
 
-            while val != num:
-                for num1 in cur_max:
-                    if num - val >= num1:
-                        cnt[cur_max.index(num1)] += 1
-                        val += num1
-                        break
+            for i in range(0, len(cur_max)-1):
+                if val == num:
+                    break
+                if num - val >= cur_max[i] and (cur_max[i] * ((num - val) // cur_max[i]) >= cur_max[i + 1] * 2 or num-val < cur_max[i + 1] * 2):
+                    cnt[cur_max.index(cur_max[i])] += (num - val) // cur_max[i]
+                    val += cur_max[i] * ((num - val) // cur_max[i])
+
+            if val < num:
+                cnt[len(cur_max)-1] += (num - val)
+                val += (num - val)
 
             for i in range(c):
                 if cnt[i] > 0:
                     out += str(cnt[i]) + "x" + str(cur_max[i]) + " "
+            out = out[:-1]
             out += "\n"
 
 
