@@ -1,4 +1,4 @@
-14x9
+14 9 25
 XX.XX.XX.XX.XX
 ..............
 XX.XX.XX.XX.XX
@@ -9,7 +9,8 @@ XX.XX.XX.XX.XX
 ..............
 XX.XX.XX.XX.XX
 
-9x16
+Invalid 27 28
+9 16 28
 X.X.X.X.X
 X.X.X.X.X
 .........
@@ -23,11 +24,11 @@ X.X.X.X.X
 X.X.X.X.X
 .........
 X.X.X.X.X
-XX.XX.XX.
+X.X.X.X.X
 .........
-XX.XX.X..
+XX.XX....
 
-12x17
+12 17 39
 XX.XX.XX.X.X
 .........X.X
 XX.XX.XX....
@@ -46,7 +47,7 @@ XX.XX.XX....
 .........X.X
 XX.XX.XX.X.X
 
-6x13
+6 13 16
 XX.X.X
 ...X.X
 XX....
@@ -59,16 +60,16 @@ XX....
 ...X.X
 XX.X.X
 ......
-XX.X.X
+XX.XX.
 
-8x5
+8 5 9
 XX.XX.XX
 ........
 XX.XX.XX
 ........
 XX.XX.XX
 
-17x10
+17 10 33
 X.X.X.X.X.X.X.X.X
 X.X.X.X.X.X.X.X.X
 .................
@@ -76,17 +77,17 @@ X.X.X.X.X.X.X.X.X
 X.X.X.X.X.X.X.X.X
 .................
 X.X.X.X.X.X.X.X.X
+X.X.X.X.X.X.X.X.X
+.................
 XX.XX.XX.XX.XX.XX
-.................
-XX.XX.XX.XX.X....
 
-8x4
-XX.X.X..
-...X.X..
-X.X.X...
+8 4 7
 X.X.X.XX
+X.X.X...
+.......X
+XX.XX..X
 
-11x12
+11 12 26
 X.X.X.X.X.X
 X.X.X.X.X.X
 ...........
@@ -100,26 +101,26 @@ XX.XX.XX.XX
 ...........
 XX.XX.XX.XX
 
-15x9
+Invalid 24 26
+15 9 26
 X.X.X.X.X.X.X.X
 X.X.X.X.X.X.X.X
 ...............
 X.X.X.X.X.X.X.X
 X.X.X.X.X.X.X.X
 ...............
-XX.XX.XX.XX.XX.
+XX.XX.XX.XX....
 ...............
-XX.XX.XX.XX.XX.
+XX.XX.XX.XX....
 
-Invalid 22 31
-16x10
+16 10 31
 XX.X.X.X.X.X.X.X
 ...X.X.X.X.X.X.X
 XX..............
-..............XX
-XX..............
-..............XX
-XX..............
+...X.X.X.X.XX.XX
+XX.X.X.X.X......
+............X.XX
+XX.XX.XX.XX.X...
 ..............XX
 X.X.X.X.X.X.X...
 X.X.X.X.X.X.X.XX

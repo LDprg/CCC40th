@@ -1,6 +1,9 @@
 example = False
 example = True
 
+debug = False
+debug = True
+
 cnt = 0
 
 
@@ -13,7 +16,7 @@ def calc(arr, x, y, c):
                 if cnt % 2 == 0 and cnt // 2 == c:
                     break
 
-                if i % 3 != 2 and j % 2 == 0 and (i < (y // 3) * 3 - 3 + y % 3 or y % 3 == 2):
+                if i % 3 != 2 and j % 2 == 0 and (i < ((y-1) // 3) * 3 or y % 3 == 2):
                     arr[i][j] = 'X'
                     cnt += 1
 
@@ -22,8 +25,7 @@ def calc(arr, x, y, c):
                 if cnt % 2 == 0 and cnt // 2 == c:
                     break
 
-                if i % 2 != y % 2 and j % 3 != 2 and (j < (x // 3) * 3 or x % 3 == 2) and not (
-                        i < (y // 3) * 3 - 3 + y % 3 or y % 3 == 2):
+                if i % 2 != y % 2 and j % 3 != 2 and (j < ((x-1) // 3) * 3 or x % 3 == 2) and not (i < ((y-1) // 3) * 3 or y % 3 == 2):
                     arr[i][j] = 'X'
                     cnt += 1
     elif y % 2 != 0:
@@ -32,16 +34,19 @@ def calc(arr, x, y, c):
                 if cnt % 2 == 0 and cnt // 2 == c:
                     break
 
-                if i % 2 == 0 and j % 3 != 2 and (j < (x // 3) * 3 - 3 + x % 3 or x % 3 == 2):
+                if i % 2 == 0 and j % 3 != 2 and (j < ((x-1) // 3) * 3 or x % 3 == 2):
+                    arr[i][j] = 'X'
+                    cnt += 1
+                elif i % 2 == 0 and j % 3 != 2 and not (i < ((y-1) // 3) * 3 or y % 3 == 2):
                     arr[i][j] = 'X'
                     cnt += 1
 
         for j in range(x):
             for i in range(y):
-                if cnt % 2 == 0 and cnt // 2 == c:
+                if cnt % 2 == 0 and cnt // 2 == c + 2:
                     break
 
-                if i % 3 != 2 and j % 2 == 1 and not (j < (x // 3) * 3 - 3 + x % 3 or x % 3 == 2):
+                if i % 3 != 2 and j % 2 == 1 and (i < ((y-1) // 3) * 3 or y % 3 == 2) and not (j < ((x-1) // 3) * 3 or x % 3 == 2):
                     arr[i][j] = 'X'
                     cnt += 1
     elif y > 5 and x > 5:
@@ -80,23 +85,32 @@ def calc(arr, x, y, c):
                 for j in range(len(arr1[i])):
                     arr[i + 3][j + 3] = arr1[i][j]
     else:
-        for j in range(x):
-            for i in range(y):
-                if cnt % 2 == 0 and cnt // 2 == c:
-                    break
-
-                if i % 3 != 2 and j % 2 == 0 and (i < (y // 3) * 3 or y % 3 == 2):
-                    arr[i][j] = 'X'
-                    cnt += 1
-
-        for i in range(y):
+        if y < 5:
             for j in range(x):
-                if cnt % 2 == 0 and cnt // 2 == c:
-                    break
+                for i in range(y):
+                    if cnt % 2 == 0 and cnt // 2 == c:
+                        break
 
-                if i % 2 != y % 2 and j % 3 != 2 and (j < (x // 3)*3 or x % 3 == 2) and not (i < (y // 3) * 3 or y % 3 == 2):
-                    arr[i][j] = 'X'
-                    cnt += 1
+                    if i % 3 != 2 and j % 2 == 0 and (i < (y // 3) * 3 or y % 3 == 2) and j < x - 2:
+                        arr[i][j] = 'X'
+                        cnt += 1
+
+                    if j == x - 1 and i > y - 3:
+                        arr[i][j] = 'X'
+                        cnt += 1
+
+            for i in range(y):
+                for j in range(x):
+                    if cnt % 2 == 0 and cnt // 2 == c:
+                        break
+
+                    if i % 2 != y % 2 and j % 3 != 2 and (j < (x // 3)*3 or x % 3 == 2) and not (i < (y // 3) * 3 or y % 3 == 2):
+                        arr[i][j] = 'X'
+                        cnt += 1
+
+                    if j > x - 3 and i < 1:
+                        arr[i][j] = 'X'
+                        cnt += 1
 def main(name):
     global cnt
 
@@ -117,10 +131,11 @@ def main(name):
 
         calc(arr, x, y, c)
 
-        if cnt // 2 != c:
-            out += "Invalid " + str(cnt // 2) + " " + str(c) + "\n"
+        if debug:
+            if cnt // 2 != c:
+                out += "Invalid " + str(cnt // 2) + " " + str(c) + "\n"
 
-        out += str(x) + "x" + str(y) + "\n"
+            out += str(x) + " " + str(y) + " " + str(c) + "\n"
 
         for i in range(len(arr)):
             for j in range(len(arr[i])):
